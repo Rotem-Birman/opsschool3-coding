@@ -1,7 +1,9 @@
+import sys
 import json
 import yaml
 from pprint import pprint
-with open ('my_list.json') as f:
+
+with open (sys.argv[1]) as f:
 	data = json.load(f)
 buckets = data["buckets"]
 ppl_ages = data["ppl_ages"]
@@ -40,4 +42,4 @@ for i in range(len(sorted_buckets)):
 print(answer)
 
 with open ('my_list.yaml','w') as outfile:
-	yaml.dump(answer, outfile, default_flow_style=False)
+	yaml.dump(answer, outfile, allow_unicode=True, default_flow_style=False)
